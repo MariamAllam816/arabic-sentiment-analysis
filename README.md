@@ -16,77 +16,14 @@ Output: ✅ Positive (confidence: 94.2%)
 Input:  "خدمة العملاء بتاعتهم بطيئة جداً ومش مفيدة"
 Output: ❌ Negative (confidence: 91.7%)
 ```
-
----
-
-## 📁 Project Structure
-
-```
-arabic-sentiment-analysis/
-├── src/
-│   ├── preprocess.py        # Arabic text cleaning & normalization
-│   ├── train.py             # Fine-tuning AraBERT
-│   ├── evaluate.py          # Metrics, confusion matrix, per-class report
-│   └── predict.py           # Inference on new text
-├── notebooks/
-│   └── demo.ipynb           # End-to-end walkthrough (Colab-ready)
-├── data/
-│   └── README.md            # Dataset sources and download instructions
-├── models/                  # Saved checkpoints (git-ignored)
-├── tests/
-│   └── test_preprocess.py   # Unit tests for preprocessing
-├── requirements.txt
-├── setup.py
-└── README.md
-```
-
----
-
-## 🛠️ Setup
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/arabic-sentiment-analysis.git
-cd arabic-sentiment-analysis
-```
-
-### 2. Create a virtual environment
-
-```bash
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-venv\Scripts\activate           # Windows
-```
-
-### 3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
 ## 📊 Dataset
 
 This project uses the **ASTD (Arabic Sentiment Tweets Dataset)** — freely available for research.
-
-Download instructions are in [`data/README.md`](data/README.md).
 
 Alternatively, you can use the **Arabic SemEval-2017** dataset or scrape your own with `tweepy`.
 
 ---
 
-## 🏋️ Training
-
-```bash
-python src/train.py \
-  --data_path data/astd_processed.csv \
-  --model_name aubmindlab/bert-base-arabertv2 \
-  --epochs 4 \
-  --batch_size 16 \
-  --output_dir models/arabert-sentiment
-```
 
 **Training args:**
 
@@ -108,7 +45,7 @@ python src/evaluate.py \
   --test_path data/test.csv
 ```
 
-Expected output:
+output:
 ```
               precision    recall  f1-score
     Positive     0.91      0.89      0.90
@@ -196,8 +133,3 @@ PRs welcome! Especially interested in:
 - Multi-dialect support (MSA + Gulf + Levantine)
 - Aspect-based sentiment (e.g., "delivery was fast but packaging was bad")
 
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE)
